@@ -163,6 +163,21 @@ export class AgensApiService {
       .catch(this.handleError);
   }
 
+  dbRemoveProject(projId:number){
+    const url = `${this.apiUrl}/project/remove`;
+    let headers = this.auth.createAuthorizationHeader(this.auth.getToken());
+    console.log( `try dbRemoveProject ==> ${url}`);
+
+    let request = { "id": projId };
+    return this.http
+      .get(url, {headers: headers, params: request })
+      .toPromise()
+      .then(res => {
+        return res.json();
+      })
+      .catch(this.handleError);
+  }
+
   ////////////////////////////////////////////////
 
   dbAdminUsers(){

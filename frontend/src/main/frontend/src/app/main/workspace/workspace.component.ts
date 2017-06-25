@@ -121,6 +121,22 @@ export class WorkspaceComponent implements OnInit, AfterViewInit {
       });
   }
 
+  removeProject(projId:number){
+    this.apiSerivce.dbRemoveProject(projId)
+      .then(data => {
+        console.log( data );
+        let index=-1;
+        for( let i=0; i<this.tableRows.length; i++ ){
+          if( this.tableRows[i].id === data ){
+            console.log( "delete row:", i );
+            index = i;
+            break;
+          }            
+        }
+        if( index >= 0 ) this.tableRows.slice(index,1);
+      });
+  }
+
   clearGraph(where:string){
     if( where == 'left' ){
       this.graph_left.elements().remove();

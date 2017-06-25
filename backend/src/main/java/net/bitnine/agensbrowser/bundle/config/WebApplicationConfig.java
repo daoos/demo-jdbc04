@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
  
 
@@ -45,23 +46,25 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 	// index.html을 찾기 위한 리소스 로케이션 등록 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+//		registry.addResourceHandler("/index.html").addResourceLocations("classpath:/static/index.html");
+		
+		if (!registry.hasMappingForPattern("/**")) {
+			registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+//					CLASSPATH_RESOURCE_LOCATIONS);
+		}
+/*		
 		if (!registry.hasMappingForPattern("/webjars/**")) {
 			registry.addResourceHandler("/webjars/**").addResourceLocations(
 					"classpath:/META-INF/resources/webjars/");
 		}
-		if (!registry.hasMappingForPattern("/**")) {
-			registry.addResourceHandler("/**").addResourceLocations(
-					CLASSPATH_RESOURCE_LOCATIONS);
-		}
-/*		
-		if (!registry.hasMappingForPattern("/test/**")) {
-			registry.addResourceHandler("/test/**").addResourceLocations(
-					"classpath:/static/test/");
-		}
-		if (!registry.hasMappingForPattern("/graph/**")) {
-			registry.addResourceHandler("/graph/**").addResourceLocations(
-					"classpath:/static/graph/");
-		}
 */		
 	}	
+	
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		// **NOTE: forward도 redirect도 안먹힘 
+	    registry.addViewController("/").setViewName("redirect:/index.html");
+	}
+	
 }
