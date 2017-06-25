@@ -1,0 +1,298 @@
+<div class="content">
+  <span layout="row" layout-align="center center">
+    <h4 class="page_title">GRAPH <small class="block">Learn one way to build applications with Angular and reuse your code </small></h4>
+    <span flex></span>
+    <span class="page_title_icon" style="margin-right: 50px">
+      <a mdTooltip="New" mdTooltipPosition="before" (click)="newGraph()"><md-icon>add</md-icon></a>
+      <a [mdMenuTriggerFor]="folderOpen" mdTooltip="Open" mdTooltipPosition="before"><md-icon>folder_open</md-icon></a>
+      <md-menu #folderOpen="mdMenu" [attr.x-position]="before" [attr.y-position]="below">
+        <div class="Open_M_Head">
+          <h4>SELECT FILE <br><small>OPEN YOUR GRAPH FILE</small></h4>
+        </div>
+        <md-divider></md-divider>
+        <button md-menu-item (click)="loadDemoData(0)"><div layout="column"><h4>Sameple#1</h4></div></button>
+        <md-divider></md-divider>
+        <button md-menu-item (click)="loadDemoData(1)"><div layout="column"><h4>Sameple#2</h4></div></button>
+        <md-divider></md-divider>
+        <button md-menu-item (click)="loadDemoData(2)"><div layout="column"><h4>Sameple#3</h4></div></button>
+      </md-menu>
+      <a mdTooltip="Save" mdTooltipPosition="before" (click)="toggleSave()"><md-icon>save</md-icon></a>
+    </span>
+  </span>
+
+  <div [hidden]="!toggleDivSave" class="panel panel-default">
+    <md-card layout="column" class="newgraph_card md-elevation-z0 bgc-light-blue-50" >
+      <div class="push-left-sm push-right-sm">
+        <form layout="row">
+          <!--<input type="hidden" [value]="projId">-->
+          <md-input-container flex="20">
+            <md-placeholder>Title</md-placeholder>
+            <input name="title" type="text" mdInput [(ngModel)]="projTitle" [value]="projTitle">
+          </md-input-container>
+          <md-input-container flex="70">
+            <md-placeholder>Description</md-placeholder>
+            <input name="description" type="text" mdInput [(ngModel)]="projDescription" [value]="projDescription">
+          </md-input-container>
+        </form>
+        <div class="pad-left-md pad-right-lg" layout="row" layout-align="end center">
+          <h4 class="tc-grey-700">
+            SAVE &nbsp; &nbsp;<small>AGENSMANAGER PROJECT</small>
+          </h4>
+          <span flex hide-gt-md></span>
+          <div layout="row" layout-margin>
+            <a md-raised-button flex class="tc-blue-400" (click)="toggleSave()">CANCER</a>
+            <a md-raised-button flex class="bgc-blue-400 tc-grey-50" (click)="saveProject()">SAVE</a>
+          </div>
+        </div>
+      </div> 
+    </md-card>
+  </div>
+
+  <md-card class="radius15">
+    <div class="bgc-blue-600 tc-grey-50 pad-xs pad-left-sm edi_head" layout-gt-sm="row" layout="column" flex>
+      <h4>EDITOR &nbsp; &nbsp; &nbsp;</h4> 
+      <a mdTooltip="Run" mdTooltipPosition="after" (click)="requestQuery()"><md-icon>play_circle_outline</md-icon></a>
+      <span flex show-gt-sm></span>
+      <span layout layout-align="end center">
+        <a mdTooltip="Reset" mdTooltipPosition="before"><md-icon>reply</md-icon></a>
+        <a mdTooltip="Copy" mdTooltipPosition="before"><md-icon>content_copy</md-icon></a>
+      </span>
+    </div>
+
+    <!-- REQUEST : cypher query -->
+    <md-card-content>
+      <form>
+        <textarea placeholder="input Cypher Query.." id="agensQuery" #agensQuery type="text"
+          (change)="query=agensQuery.value" [value]="query"></textarea>
+      </form>
+    </md-card-content>
+
+  </md-card>
+
+  <div class="loading-container" *ngIf="loading">
+    <md-progress-circle mode="indeterminate" color="warn">Loading...</md-progress-circle>
+  </div>
+
+  <!-- NOTE: td-expansion-panel 안에 ngx-datatable을 넣으면 테이블 렌더링이 엉망이 됨!! -->
+  <div class="mat-table-container" style="margin-left:10px; margin-right: 40px;">
+    <ngx-datatable #resultTable class='material expandable' 
+        [rows]='result_table_rows' [columns]='result_table_columns'
+        [loadingIndicator]="loading_table" [reorderable]="true" [limit]="10"
+        [headerHeight]="40" [footerHeight]="40" [rowHeight]="40" [columnMode]="'force'"
+        [scrollbarH]="true" (page)="onTablePage($event.offset)">
+
+      <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onRowDetailToggle($event)">
+        <ng-template let-row="row" ngx-datatable-row-detail-template>
+          <div style="padding-left:35px; overflow-y:auto;">
+            <div><span>{{ row[row._selectedColumn.prop].value | json }}</span></div>
+          </div>
+        </ng-template>
+      </ngx-datatable-row-detail>
+
+      <ngx-datatable-column name="ROWNUM" [width]="80" [maxWidth]="80" [canAutoResize]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span>{{ row.rowNum }}</span>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column *ngFor="let col of result_table_columns | slice:1" name="{{col.name}}" 
+          [canAutoResize]="true" [minWidth]="100" [width]="120">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <button *ngIf="col.isAgensType" md-icon-button mdTooltip="Expand/Collapse Row"
+            (click)="toggleExpandRow(row, col)">
+            <i [class.datatable-icon-right]="!row.$$expanded" [class.datatable-icon-down]="row.$$expanded"></i>
+          </button>
+          <span>{{ col.isAgensType ? row[col.prop].disp : row[col.prop] }}</span>
+        </ng-template>
+      </ngx-datatable-column>
+
+    </ngx-datatable>
+  </div>
+
+  <!-- RESULTs : json, table, graph -->
+  <md-card class="bgc-light-blue-50 md-elevation-z0">
+
+    <!-- GRAPH -->
+    <td-expansion-panel expand="true">
+      <md-sidenav-container>
+        <ng-template td-expansion-panel-label>
+          <h4>GRAPH &nbsp; <small class="text-xs">result</small></h4>
+        </ng-template>
+        <td-expansion-summary></td-expansion-summary>
+
+        <!-- Graph setting side -->
+        <md-sidenav #sideset mode="over" opened="false" align="end">
+          <div layout="column">
+            <div layout="row" class=" setsidehead" layout-align="center center">
+              <span><h3>SETTING <br><small class="text-xs">GRAPH SETTING SIDE</small></h3></span>
+              <span flex></span>
+              <button md-icon-button (click)="reset()" mdTooltip="Clear" mdTooltipPosition="above"><md-icon class="text-md">reply</md-icon></button>
+              <button md-icon-button (click)="sideset.close()" mdTooltip="Close" mdTooltipPosition="above"><md-icon>close</md-icon></button>
+            </div>
+            <form layout="column">
+              <div layout="center center">
+                <h5>GRAPH</h5>
+              </div>
+              <div layout="column" class="set_input">
+                <div layout="column" class="set_in">
+                  <md-input-container flex>
+                    <input mdInput type="text" placeholder="Start-Node" flex>
+                  </md-input-container>
+                  <md-input-container flex>
+                    <input mdInput type="text" placeholder="Search-Depth" flex>
+                  </md-input-container>
+                </div>
+              </div>
+              <div layout="center center">
+                <h5>NODES</h5>
+              </div>
+              <div layout="column" class="set_input">
+                <md-input-container>
+                  <input mdInput type="text" placeholder="Label">
+                </md-input-container>
+                <md-input-container>
+                  <input mdInput type="number" placeholder="Size">
+                </md-input-container>
+                <md-select placeholder="Icon" name="icon" flex layout-margin>
+                  <md-option>Red</md-option>
+                  <md-option>White</md-option>
+                  <md-option>Black</md-option>
+                </md-select>
+                <md-select placeholder="Color" name="color" flex layout-margin>
+                  <md-option>Red</md-option>
+                  <md-option>White</md-option>
+                  <md-option>Black</md-option>
+                </md-select>
+              </div>
+              <div layout="center center">
+                <h5>EDGES</h5>
+              </div>
+              <div layout="column" class="set_input">
+                <md-input-container>
+                  <input mdInput type="text" placeholder="Label">
+                </md-input-container>
+                <md-input-container>
+                  <input mdInput type="number" placeholder="Size">
+                </md-input-container>
+                <md-select placeholder="Icon" name="icon" flex layout-margin>
+                  <md-option>Red</md-option>
+                  <md-option>White</md-option>
+                  <md-option>Black</md-option>
+                </md-select>
+                <md-select placeholder="Color" name="color" flex layout-margin>
+                  <md-option>Red</md-option>
+                  <md-option>White</md-option>
+                  <md-option>Black</md-option>
+                </md-select>
+              </div>
+            </form>
+            <div layout="column" layout-margin class="setsidefoot">
+              <button md-button class="" flex>OKAY</button>
+            </div>
+          </div>
+        </md-sidenav>
+
+        <!-- Graph content -->
+        <div id="agens-graph" class="gra_content relative">
+
+          <span id="agens-graph-toolbar" class="gra_con" layout="column">
+            <button [mdMenuTriggerFor]="layoutMenu" md-icon-button mdTooltip="LAYOUT" mdTooltipPosition="before"><md-icon>web</md-icon></button>
+            <md-menu #layoutMenu="mdMenu" [attr.x-position]="before" [attr.y-position]="below">
+              <div class="Open_M_Head">
+                <h4>LAYOUT<br><small>SELECT YOUR GRAPH LAYOUT</small></h4>
+              </div>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(0)"><div layout="column"><h4>GRID</h4></div></button>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(1)"><div layout="column"><h4>RANDOM</h4></div></button>    
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(2)"><div layout="column"><h4>BREADTHFIRST</h4></div></button> 
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(3)"><div layout="column"><h4>CIRCLE</h4></div></button>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(4)"><div layout="column"><h4>CONCENTRIC</h4></div></button>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(5)"><div layout="column"><h4>COLA</h4></div></button>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(6)"><div layout="column"><h4>COSE</h4></div></button>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(7)"><div layout="column"><h4>COSE-BILKENT</h4></div></button>
+              <md-divider></md-divider>
+              <button md-menu-item (click)="changeLayout(8)"><div layout="column"><h4>DAGRE</h4></div></button>
+            </md-menu>
+
+            <button md-icon-button mdTooltip="SEARCH" mdTooltipPosition="before"><md-icon>search</md-icon></button>
+            <button md-icon-button (click)="cyUndo()" mdTooltip="BEFORE" mdTooltipPosition="before"><md-icon>skip_previous</md-icon></button>
+            <button md-icon-button (click)="cyRedo()" mdTooltip="AFTER" mdTooltipPosition="before"><md-icon>skip_next</md-icon></button>
+<!--            
+            <button md-icon-button mdTooltip="INSERT TEXT" mdTooltipPosition="before"><md-icon>textsms</md-icon></button>
+            <button md-icon-button mdTooltip="INSERT LINK" mdTooltipPosition="before"><md-icon>insert_link</md-icon></button>
+            <button md-icon-button mdTooltip="INSERT photo" mdTooltipPosition="before"><md-icon>photo</md-icon></button>
+-->
+            <button [mdMenuTriggerFor]="exportMenu" md-icon-button mdTooltip="EXPORT" mdTooltipPosition="before"><md-icon>file_download</md-icon></button>
+            <md-menu #exportMenu="mdMenu" [attr.x-position]="before" [attr.y-position]="above">
+              <div class="Open_M_Head"><h4>EXPORT <br><small>select type</small></h4></div>                                    
+              <md-divider></md-divider>
+              <button md-menu-item (click)="dlgExportImage()">
+                <md-icon>gradient</md-icon> &nbsp; <span>Image(PNG)</span>
+              </button>    
+              <md-divider></md-divider>
+              <button md-menu-item (click)="dlgExportJson()">
+                <md-icon>image</md-icon> &nbsp; <span>JSON File</span>
+              </button>            
+            </md-menu>
+            
+            <button (click)="sideset.open()" md-icon-button mdTooltip="SETTING" mdTooltipPosition="before"><md-icon>settings</md-icon></button>
+            <button md-icon-button (click)="dlgFullScreen()" mdTooltip="Full Screen" mdTooltipPosition="before"><md-icon>open_with</md-icon></button>
+            <button md-icon-button (click)="cyResize()" mdTooltip="Resize Canvas" mdTooltipPosition="before"><md-icon>refresh</md-icon></button>
+            <button md-icon-button mdTooltip="HELP" mdTooltipPosition="before"><md-icon>help</md-icon></button>
+          </span>
+        </div>
+        <!--<md-chip-list id="agens-graph-labels" style="position: absolute; bottom: 20px;">-->
+        <md-chip-list id="agens-graph-labels">
+          <md-chip *ngFor="let label of result_labels" [selected]="true" style="z-index: 9"
+              (click)="cySelectLabel(label.type, label.name)" [color]="(label.type == 'vertex') ? 'primary':'accent'">
+            {{label.name}}({{label.count}})
+          </md-chip>
+          <!--<md-chip [selected]="true" color="primary">Moive(12)</md-chip>-->
+        </md-chip-list>
+        
+      </md-sidenav-container>
+    </td-expansion-panel>
+
+
+    <!-- TABLE -->
+<!--    
+    <td-expansion-panel class="tc-brown-600" [expand]="result_table_expand">
+      <ng-template td-expansion-panel-label>
+        <h4>ROWS &nbsp; <small class="text-xs">result</small></h4>
+      </ng-template>
+      <div class="pad-md">
+-->
+<!--
+        <td-data-table [data]="result_table" [columns]="result_table_columns"
+            [sortable]="true" [sortBy]="rowNum" [sortOrder]="ASC" (sortChange)="sort($event)">
+          <ng-template tdDataTableTemplate="type" let-value="value" let-row="row" let-column="column">
+            <div layout="row">
+              <span style="text-align:left" flex>{{value}}</span>
+            </div>
+          </ng-template>            
+        </td-data-table>
+-->
+<!--        
+      </div>
+    </td-expansion-panel>
+-->
+    <!-- JSON -->
+    <td-expansion-panel class="tc-teal-500" [expand]="result_json_expand">
+      <ng-template td-expansion-panel-label>
+        <h4>JSON &nbsp; <small class="text-xs">result</small></h4>
+      </ng-template>
+      <div class="pad-md">
+        <td-json-formatter [data]="result_json" [levelsOpen]="3"></td-json-formatter>
+      </div>
+    </td-expansion-panel>
+
+  </md-card>
+
+</div>

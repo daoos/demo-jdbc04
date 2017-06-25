@@ -1,0 +1,27 @@
+.loginForm_line { width: 100%; max-width: 450px; height: 100%; margin: auto; display: table;
+    
+    div.center { display: table-cell; vertical-align: middle; 
+
+        md-card { padding: 24px; border-radius:28px; 
+
+            div.logo { width: 110px; margin: 30px auto; 
+            
+                img { width: 100%; }
+            
+            }
+
+            form { margin: 12px 0; }
+
+            md-placeholder { font-size: 12px; }
+
+            button { margin: 24px 0; padding: 4px; border-radius: 16px; }
+
+            md-hint { right: 0; }
+
+        }
+
+    }
+
+}
+
+.material-icons { font-size: 18px; line-height: 26px; color: dimgray; }

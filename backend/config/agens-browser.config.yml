@@ -1,0 +1,42 @@
+## config context path to "/" by setting an empty string
+server:
+  contextPath:
+  port: 8085
+  session:
+    timeout: 3600   # 60*60 seconds
+  tomcat:
+    min-spare-threads: 90
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+#   url: jdbc:postgresql://27.117.163.21:15602/test_ts
+    url: jdbc:postgresql://127.0.0.1:6179/test_ts
+    username: agraph
+    password: agraph
+    schema: classpath:/sql/schema.sql
+    data: classpath:/sql/data.sql
+    continueOnError: true
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  # JACKSON
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+jwt:
+  header: Authorization
+  secret: mySecretKey
+  expiration: 172800    # 86400 * 2 day
+  route:
+    authentication:
+      path: api/v1/auth
+      refresh: refresh
+
+agens:
+  config:
+    max_rows_num: 500
+    base_path: /api/v1

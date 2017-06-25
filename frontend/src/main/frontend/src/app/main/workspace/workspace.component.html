@@ -1,0 +1,108 @@
+<div class="content">
+   
+   <span layout="row" layout-align="center center">
+        <h4 class="page_title">WORKSPACE <small class="block">Learn one way to build applications with Angular and reuse your code </small></h4>
+        <span flex></span>
+        <div class="button-row" style="margin-left:10px; margin-right: 40px;">
+            <button md-raised-button (click)="loadAllProjects()">Refresh</button>
+        </div>
+        <span class="help" layout="row" style="margin-left:10px; margin-right: 40px;">
+            <md-icon>highlight</md-icon>
+            <p>HOW CAN I HELP YOU?</p>
+        </span>
+    </span>
+  <!-- 
+    Graph tab title
+  -->
+
+    <ngx-datatable #projectsTable class='material' style="margin-left:10px; margin-right: 40px;" 
+            [rows]='tableRows'
+            [loadingIndicator]="loading_label" [reorderable]="true" [limit]="5"
+            [headerHeight]="40" [footerHeight]="40" [rowHeight]="40" [columnMode]="'flex'"
+            (page)="onTablePage($event.offset)">
+
+        <ngx-datatable-row-detail [rowHeight]="40" #myDetailRow (toggle)="onRowDetailToggle($event)">
+            <ng-template let-row="row" ngx-datatable-row-detail-template>
+                <div style="padding-left:35px; overflow-y:auto;">
+                    <div><span>{{ row.sql }}</span></div>
+                </div>
+            </ng-template>
+        </ngx-datatable-row-detail>
+
+        <!-- **NOTE: 썸네일 출력은 나중에 합시다! -->
+        <ngx-datatable-column name="Thumbnail" [width]="200" [minWidth]="150">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{ row.id }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Show" [flexGrow]="1" [minWidth]="50">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <button md-icon-button (click)="showProjectGraph('left', row)" mdTooltip="LEFT" mdTooltipPosition="after"><md-icon>keyboard_arrow_left</md-icon></button>
+                <button md-icon-button (click)="showProjectGraph('right', row)" mdTooltip="RIGHT" mdTooltipPosition="after"><md-icon>keyboard_arrow_right</md-icon></button>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Title" [flexGrow]="2" [minWidth]="100">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <button md-icon-button mdTooltip="Expand/Collapse Row" (click)="toggleExpandRow(row)">
+                    <i [class.datatable-icon-right]="!row.$$expanded" [class.datatable-icon-down]="row.$$expanded"></i>
+                </button>
+                <span><a [routerLink]="['/graph/'+row.id, row]">{{ row.title }}</a></span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Last Update" [flexGrow]="1" [minWidth]="100">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{ row.update_dt | date : "yyyy-MM-dd HH:mm:ss" }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Description" [flexGrow]="4" [minWidth]="100">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{ row.description }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+    </ngx-datatable>
+    
+    <div layout="row" style="height:600px; margin-right:50px;">
+        <md-card flex>
+            <div layout="row" layout-align="center center" class="graph_title">
+                <div layout="row">
+                    <button md-icon-button mdTooltip="resize" (click)="cyResize('left')"><md-icon>bubble_chart</md-icon></button>
+                    <h4> {{ graph_left_row ? graph_left_row.title : "No title" }} 
+                        <br *ngIf="!!graph_left_row">
+                        <small *ngIf="!!graph_left_row"> {{ graph_left_row.description }} </small></h4>
+                </div>
+                <span flex></span>
+                <!--<a mdTooltip="EDIT" mdTooltipPosition="above" [routerLink]="['/graph']"><md-icon>settings</md-icon></a>-->
+                <button md-button style="margin-right:10px;" (click)="goEditGraph('left')">Edit Graph</button>
+                <button md-raised-button (click)="clearGraph('left')">Clear</button>
+            </div>
+            <md-card-content>
+                <!-- Graph content -->
+                <div id="agens-graph-left" 
+                    style="z-index:9; width:100%; height:500px; border-style:solid; border-width:2px;"></div>
+            </md-card-content>
+        </md-card>
+        <md-card flex>
+            <div layout="row" layout-align="center center" class="graph_title">
+                <div layout="row">
+                    <button md-icon-button mdTooltip="resize" (click)="cyResize('right')"><md-icon>bubble_chart</md-icon></button>
+                    <h4> {{ graph_right_row ? graph_right_row.title : "No title" }} 
+                        <br *ngIf="!!graph_right_row">
+                        <small *ngIf="!!graph_right_row"> {{ graph_right_row.description }} </small></h4>
+                </div>
+                <span flex></span>
+                <!--<a mdTooltip="EDIT" mdTooltipPosition="above" [routerLink]="['/graph']"><md-icon>settings</md-icon></a>-->
+                <button md-button style="margin-right:10px;" (click)="goEditGraph('right')">Edit Graph</button>
+                <button md-raised-button (click)="clearGraph('right')">Clear</button>
+            </div>
+            <md-card-content>
+                <!-- Graph content -->
+                <div id="agens-graph-right" 
+                    style="z-index:9; width:100%; height:500px; border-style:solid; border-width:2px;"></div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+
+

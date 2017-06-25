@@ -1,0 +1,137 @@
+<div class="content">
+
+  <span layout="row" layout-align="center center">
+        <h4 class="page_title">ADMIN <small class="block">Learn one way to build applications with Angular and reuse your code </small></h4>
+        <span flex></span>
+  <span class="help" layout="row">
+            <md-icon>highlight</md-icon>
+            <p>HOW CAN I HELP YOU?</p>
+        </span>
+  </span>
+<!--
+  <div layout-gt-md="row" class="admin_container">
+    <md-card flex="33%">
+      <div layout="row" class="admin_text">
+        <md-icon>share</md-icon>
+        <h3>Tuples In </h3>
+      </div>
+      <md-card-content class="graph">
+      </md-card-content>
+    </md-card>
+    <md-card flex="33%">
+      <div layout="row" class="admin_text">
+        <md-icon>equalizer</md-icon>
+        <h3>Tuples Out </h3>
+      </div>
+      <md-card-content class="graph">
+      </md-card-content>
+    </md-card>
+    <md-card flex="33%">
+      <div layout="row" class="admin_text">
+        <md-icon>equalizer</md-icon>
+        <h3>Block I/O </h3>
+      </div>
+      <md-card-content class="graph">
+      </md-card-content>
+    </md-card>
+  </div>
+-->
+  <md-card style="margin-right:50px;">
+    <div layout="row" style="margin-right:40px;">
+      <h4>User List</h4>
+      <span flex></span>
+      <button md-raised-button color="primary" (click)="toggleAddUser()">Add user</button>
+<!--      
+      <td-search-box class="push-right-md push-top-sm" #searchBox backIcon="arrow_back" placeholder="SEARCH" [showUnderline]="true"
+        [alwaysVisible]="false" (searchDebounce)="search($event)">
+      </td-search-box>
+-->
+    </div>
+    <md-card-content>
+
+      <ngx-datatable #adminUsersTable class='material' style="margin-left:10px; margin-right:10px;"
+              [rows]='tableRows' [columns]='tableColumns'
+              [loadingIndicator]="loading_users" [reorderable]="true" [limit]="5"
+              [headerHeight]="50" [footerHeight]="50" [rowHeight]="50" [columnMode]="'force'"
+              (page)="onTablePage($event.offset)">
+
+        <ngx-datatable-column name="Enabled" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <md-checkbox (click)="toggleUserEnabled(row.username, row.enabled)" checked="row.enabled == 'true'"></md-checkbox>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="User ID" [maxWidth]="150" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.username }}</span>
+              <!--<span>{{ row.username }} ({{ row.active == 'true' ? "logined" : "not login" }})</span>-->
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name" [maxWidth]="200" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.firstname+' '+row.lastname }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Email" [maxWidth]="200" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.email }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Authority" [minWidth]="200" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.authorities_text }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Delete" [maxWidth]="100" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button md-icon-button (click)="unregisterUser(row.username)" mdTooltip="Delete" mdTooltipPosition="before">
+                <md-icon>delete</md-icon>
+              </button>
+            </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </md-card-content>
+  </md-card>
+
+  <md-card *ngIf="toggle_add_user" style="margin-right:50px;">
+    <div layout="row" style="margin-right:40px;">
+      <h4>Add User</h4>
+      <span flex></span>
+      <button md-raised-button color="primary" (click)="registerUser()">Registeration</button>
+      <button md-raised-button (click)="toggleAddUser()" style="margin-left:10px;">Cancel</button>
+    </div>
+    <md-card-content>
+  
+  <table style="width:98%" cellspacing="5px"><tr>
+    <td ><md-input-container style="width:98%">
+      <input mdInput placeholder="User ID" required [(ngModel)]="newUser.username" value="newUser.username" >
+    </md-input-container></td>
+    <td ><md-input-container style="width:98%">
+      <input mdInput placeholder="User PW" required [(ngModel)]="newUser.password" value="newUser.password" >
+    </md-input-container></td>
+    <td ><md-input-container style="width:98%">
+      <input mdInput #userAuthorities placeholder="Authorities" required
+           [(ngModel)]="newUser.roles" value="newUser.roles" >
+      <md-hint align="end">Authorities must be joined by comman ','</md-hint>
+    </md-input-container></td>
+  </tr><tr>
+    <td><md-input-container style="width:98%">
+      <input mdInput placeholder="First Name" required [(ngModel)]="newUser.firstname" value="newUser.firstname" >
+    </md-input-container></td>
+    <td><md-input-container style="width:98%">
+      <input mdInput placeholder="Last Name" required [(ngModel)]="newUser.lastname" value="newUser.lastname" >
+    </md-input-container></td>
+    <td ><md-input-container style="width:98%">
+      <input mdInput placeholder="Email" required [(ngModel)]="newUser.email" value="newUser.email" >
+      <!--<md-error *ngIf="emailFormControl.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>-->
+    </md-input-container></td>
+  </tr><tr>
+  </tr></table>
+
+    </md-card-content>
+  </md-card>
+
+</div>

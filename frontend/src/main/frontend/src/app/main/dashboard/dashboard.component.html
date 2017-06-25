@@ -1,0 +1,174 @@
+<div class="content">
+ 
+    <span layout="row" layout-align="center center">
+        <h4 class="page_title">DASHBOARD <small class="block">Learn one way to build applications with Angular and reuse your code </small></h4>
+        <span flex></span>
+        <span class="help" layout="row">
+            <md-icon>highlight</md-icon>
+            <p>HOW CAN I HELP YOU?</p>
+        </span>
+    </span>
+    
+    <div layout-gt-md="row" layout="column" class="user_container">
+        <div class="user_info" layout-gt-xs="row" layout="column" flex >
+            <md-card flex layout="row" layout-align="start end" class="userinfo pad-sm">
+                <div>
+                    <h3>{{host}}:{{port}}</h3>
+                    <p>SERVER</p>
+                </div>
+                <span flex></span>
+                <md-icon style="position: absolute; bottom: 5px; right: 20px">desktop_windows</md-icon>
+            </md-card>
+            <md-card flex layout="row" layout-align="start end" class="userinfo pad-sm">
+                <div>
+                    <h3>{{db}} &nbsp; &nbsp; <small>(owner: {{db_owner}})</small></h3>
+                    <p>{{db_desc}}</p>
+                    <p>DATABASE</p>
+                </div>
+                <span flex></span>
+                <md-icon style="position: absolute; bottom: 5px; right: 20px">cloud</md-icon>
+            </md-card>
+            <md-card flex layout="row" layout-align="start end" class="userinfo pad-sm">
+                <div>
+                    <h3>{{username}} &nbsp; &nbsp; <small>{{authorities}}</small></h3>
+                    <p><{{email}}></p>
+                    <p>USERNAME</p>
+                </div>
+                <span flex></span>
+                <md-icon style="position: absolute; bottom: 5px; right: 20px">person</md-icon>
+            </md-card>
+        </div>
+    </div>
+            
+
+    <md-card class="notice">
+        <div class="notice_container">
+
+            <md-icon style="position: absolute; top: -20px; left: 13px; font-size: 40px; color: tomato;">turned_in</md-icon>
+            <div class="push-top-sm">
+                <h3>NOTICE</h3>
+                <p>Brunch this weekend?</p>
+            </div>
+
+            <div id="banner">
+                <input type="radio" id="notice1" name="notice" checked>
+                <label for="notice1">
+                    <span>
+                        <md-icon class="add">add</md-icon>
+                        <md-icon class="r_arrow">chevron_right</md-icon>
+                    </span>
+                    <p>Line List Items with Avatars and inset dividers</p>
+                </label>
+                <input type="radio" id="notice2" name="notice">
+                <label for="notice2">
+                    <span>
+                        <md-icon class="add">add</md-icon>
+                        <md-icon class="r_arrow">chevron_right</md-icon>
+                    </span>
+                    <p>With custom headings, columns, and inline editing</p>
+                </label>
+                <input type="radio" id="notice3" name="notice">
+                <label for="notice3">
+                    <span>
+                        <md-icon class="add">add</md-icon>
+                        <md-icon class="r_arrow">chevron_right</md-icon>
+                    </span>
+                    <p>Paging Bar / Search Box / Sortable components</p>
+                </label>
+            
+                <ul id="content">
+                    <li>
+                        <div class="notice_content">
+                            <h4><md-icon>location_on</md-icon> Line List Items with Avatars and inset dividers</h4>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                            <ul class="push-left-md">
+                                <li>Brunch this weekend? - I will be in your neighborhood</li>
+                                <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+                            </ul>
+                            <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="notice_content">
+                            <h4><md-icon>location_on</md-icon> There are many variations of passages of Lorem Ipsum available</h4>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                            <p> If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+                            <ul class="push-left-md">
+                                <li>Brunch this weekend? - I will be in your neighborhood</li>
+                                <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+                            </ul>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="notice_content">
+                            <h4><md-icon>location_on</md-icon> Contrary to popular belief</h4>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                            <ul class="push-left-md">
+                                <li>Brunch this weekend? - I will be in your neighborhood</li>
+                                <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+                                <li>Brunch this weekend? - I will be in your neighborhood</li>
+                                <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+                            </ul>
+                            <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </md-card>
+
+    <div class="loading-container" *ngIf="loading">
+        <md-progress-circle mode="indeterminate" color="warn">Loading...</md-progress-circle>
+    </div>
+
+    <div layout-gt-xs="row" layout="column" class="dashboard">
+        <md-card flex-gt-xs="30" flex>
+            <div class="pad-sm bgc-light-blue-700 tc-grey-50">
+                <h4>DB Browser</h4>
+            </div>
+            <md-card-content>
+                <!--<tree-root #tree [nodes]="treeData"></tree-root>-->
+                <tree-root #tree [nodes]="treeData"
+                    (onActivate)="onTreeActivate(tree, $event)"
+                    (onUpdateData)="onTreeInitialized($event)">
+                    <ng-template #treeNodeTemplate let-node="node" let-index="index" let-templates="templates">
+                        <md-icon *ngIf="!node.isLeaf">folder</md-icon>
+                        <span>{{ node.data.name }}</span>
+                        <span *ngIf="!node.isLeaf">({{ node.children.length }})</span>
+                        <md-icon *ngIf="node.level == 4 && !node.data.loaded">turned_in_not</md-icon>
+                    </ng-template>
+                </tree-root>
+            </md-card-content>
+        </md-card>
+        <md-card flex-gt-xs="70" flex>
+            <div class="pad-sm bgc-light-blue-700 tc-grey-50">
+                <h4>Browser Details</h4>
+            </div>
+            <md-card-content>
+                <ngx-datatable #browserTable class='material' [rows]='tableRows' [columns]='tableColumns'
+                    [loadingIndicator]="loading_label" [reorderable]="true" [limit]="5"
+                    [headerHeight]="40" [footerHeight]="40" [rowHeight]="40" [columnMode]="'force'"
+                    (page)="onTablePage($event.offset)">
+
+      <ngx-datatable-column name="OID" [width]="100" [maxWidth]="100" [canAutoResize]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span>{{ row.id }}</span>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column *ngFor="let col of tableColumns | slice:1" name="{{col.name}}" 
+          [canAutoResize]="true" [minWidth]="100" [width]="120">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span>{{ row[col.prop] }}</span>
+        </ng-template>
+      </ngx-datatable-column>
+                    
+                </ngx-datatable>
+            </md-card-content>
+        </md-card>
+    </div>
+    
+</div>

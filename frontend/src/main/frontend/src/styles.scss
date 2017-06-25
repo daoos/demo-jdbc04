@@ -1,0 +1,71 @@
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+// Custom style for loading elements without height
+.will-load {
+    min-height: 80px;
+}
+// Href line height wasn't right for md-icon-button
+a[md-icon-button] {
+    line-height: 36px;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, { margin: 0; padding: 0; }
+md-list { padding: 0 !important }
+a { text-decoration: none; cursor:pointer }
+
+// Capitalize
+.text-capital {
+  text-transform: capitalize;
+}
+
+html, body, md-card, .md-tab-label { font-family: 'Open Sans', sans-serif !important; }
+input, button, select, textarea { font-family: inherit; }
+
+html, body, material-app, md-sidenav-container, .my-content, {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+//   font-family: 'source-han-sans-korean', sans-serif !important;
+}
+
+// codemirror 
+.CodeMirror { height: 100%; }
+// tab css
+
+
+// md-icon.td-expand-icon { color: rgb(196,203,213) !important; }
+td-expansion-panel {
+    div.md-sidenav-content { overflow: hidden; }
+}
+
+//table css
+// th.td-data-table-column { text-align: center; }
+// td.td-data-table-cell { text-align: center; }
+
+//panel 
+.panel {
+    md-nav-list { background-color: steelblue; }
+}
+
+//select
+md-select { margin: 12px 0;}
+span.md-select-arrow { color: white;}
+span.md-select-value { color: white; }
+span.md-select-placeholder { color: lightgray; font-size:14px; }
+
+//input
+div.md-input-suffix { width: 18px; }
+
+// dialog 
+md-dialog-container { padding: 0 !important; }
+
+h4 { font-size: 15px; }
+h4.page_title { margin: 10px 0; padding-left: 8px; border-left: 4px solid cornflowerblue; }
+div.content { padding: 12px; margin: 0 20px; }
+
+////////////////////////////////////////////////////
+

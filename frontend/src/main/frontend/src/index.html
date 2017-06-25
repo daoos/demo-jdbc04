@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AgensManager v0.1</title>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.qtip.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/themes/ui-lightness/jquery-ui.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/themes/ui-lightness/theme.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/cytoscape.js-panzoom.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css/agens-graph.css" />
+
+  <!-- JQuery -->  
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+
+  <!-- CodeMirror -->  
+  <link rel="stylesheet" href="assets/css/codemirror.css" />
+  <link rel="stylesheet" href="assets/css/eclipse.css" />
+  <script src="assets/js/codemirror.js"></script>
+  <script src="assets/js/cypher.js"></script>  
+
+  <!-- cytoscope -->
+  <!--<script type="text/javascript" src="assets/js/arbor.js"></script>-->
+  <script type="text/javascript" src="assets/js/cola.js"></script>
+  <script type="text/javascript" src="assets/js/dagre.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape.min.js"></script>
+
+  <!-- Cytoscape.js: PlugIns -->
+  <script type="text/javascript" src="assets/js/jquery.qtip.min.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-qtip.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-cxtmenu.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-automove.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-edgehandles.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-panzoom.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-undo-redo.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-view-utilities.js"></script>
+
+  <!-- Cytoscape.js: Layouts -->
+  <!--<script type="text/javascript" src="assets/js/cytoscape-arbor.js"></script> -->
+  <script type="text/javascript" src="assets/js/cytoscape-cola.js"></script> 
+  <script type="text/javascript" src="assets/js/cytoscape-cose-bilkent.js"></script>
+  <script type="text/javascript" src="assets/js/cytoscape-dagre.js"></script>   
+
+  <!-- Etc. : UI, File -->
+  <script type="text/javascript" src="assets/js/jscolor.min.js"></script>   
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>   
+  <script type="text/javascript" src="assets/js/underscore-min.js"></script>   
+  <script type="text/javascript" src="assets/js/filesaver.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.watermark.min.js"></script>
+  
+</head>
+<body oncontextmenu="return false;">
+  <ag-app>
+    <div style="padding: 20%;text-align:center;">
+      <img src="assets/img/logo_32px.png" width="">
+      <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+    </div>
+  </ag-app>
+
+  <!--
+    ******************************************
+    ** Dialog Templates
+    ******************************************
+    -->
+
+  <!-- sbgn layout table will be shown here -->
+  <div id="agens-node-box" style="width: auto; height: auto; display: none;"
+          class="ui-dialog-content ui-widget-content">
+    <input id="property-node-id" type="hidden" value="">
+    <table><tbody><tr>
+      <td><span class="add-on layout-text"> Name </span></td>
+      <td><input id="property-node-name" type="text" value="New Node"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Width </span></td>
+      <td><input id="property-node-width" type="text" value="40px"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Height </span></td>
+      <td><input id="property-node-height" type="text" value="40px"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Border Color </span></td>
+      <td><input id="property-node-border-color" style="width:80px" class="jscolor" value="000000"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Color </span></td>
+      <td><input id="property-node-color" style="width:80px" class="jscolor" value="c80000"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Shape </span></td>
+      <td><select id="property-node-shape">
+        <option value="rectangle" selected>Rectangle</option>
+        <option value="triangle">Triangle</option>
+        <option value="ellipse">Ellipse</option>
+        <option value="roundrectangle">Round Rectangle</option>
+        <option value="cutrectangle">Cut Rectangle</option>
+        <option value="hexagon">Hexagon</option>
+        <option value="heptagon">Heptagon</option>
+        <option value="octagon">Octagon</option>
+        <option value="star">Star</option>
+        <option value="diamond">Diamond</option>
+        <option value="vee">Vee</option>
+        <option value="rhomboid">Rhomboid</option>
+        <option value="polygon">Polygon</option>
+        <option value="pentagon">Pentagon</option>
+      </select></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Property </span></td>
+      <td><div><textarea id="property-node-props" name="props" rows="5" cols="20" style="width:100%; font-size: 10px;">
+{
+  "label": ""
+}
+      </textarea></div></td>
+    </tr></tbody></table>
+  </div>
+
+  <div id="agens-edge-box" style="width: auto; height: auto; display: none;"
+          class="ui-dialog-content ui-widget-content">
+    <input id="property-edge-id" type="hidden" value="">
+    <table><tbody><tr>
+      <td><span class="add-on layout-text"> Name </span></td>
+      <td><input id="property-edge-name" type="text" value="New Edge"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Width </span></td>
+      <td><input id="property-edge-width" type="text" value="40px"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Color </span></td>
+      <td><input id="property-edge-color" style="width:80px" class="jscolor" value="c80000"></td>
+    </tr><tr>
+      <td><span class="add-on layout-text"> Property </span></td>
+      <td><div><textarea id="property-edge-props" name="props" rows="5" cols="20" style="width:100%; font-size: 10px;">
+{
+  "label": ""
+}
+      </textarea></div></td>
+    </tr></tbody></table>      
+  </div>
+
+  <!-- Dialog: Image Export -->
+  <div id="agens-image-export" title="Styles" style="width: auto; height: auto; display: none;"
+          class="ui-dialog-content ui-widget-content">
+    <div class="wrap" id="image-export-wrap"><img style="width:98%" src="" /></div>
+
+    <table><tbody><tr>
+    <td><span class="add-in layout-text"> Filename </span></td>
+    <td><input id="image-export-filename" type="text" value="agens-graph-export"></td>
+    </tr><tr>
+    <td><span class="add-on layout-text"> Background Color </span></td>
+    <td><input id="image-export-bgcolor" onchange="onImageExportChangeColor(this.jscolor)" style="width:80px" class="jscolor" value="FFFFFF"></td>
+    </tr><tr>
+    <td><span class="add-on layout-text"> Watermark </span></td>
+    <td><input id="image-export-watermark" onchange="onImageExportChangeWatermark()" value="bitnine.net"></td>
+    </tr></tbody></table>
+  </div>
+
+  <!-- Dialog: JSON Export -->
+  <div id="agens-json-export" title="Styles" style="width: auto; height: auto; display: none;"
+          class="ui-dialog-content ui-widget-content">
+    <table><tbody><tr>
+    <td><span class="add-in layout-text"> Filename </span></td>
+    <td><input id="json-export-file-name" type="text" value="agens-graph-export.json"></td>
+    </tr></tbody></table>
+  </div>
+
+  <script type="text/javascript" src="assets/js/agens-graph.js"></script>
+  <script type="text/javascript" src="assets/js/agens-demo-data.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!--
+<td-layout #layout>
+  <td-navigation-drawer logo="assets:covalent" sidenavTitle="Quickstart" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <md-nav-list>
+      <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
+        <a md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+      </ng-template>
+    </md-nav-list>
+    <md-nav-list td-navigation-drawer-menu>
+      <a md-list-item (click)="logout()"><md-icon>exit_to_app</md-icon>Sign out</a>
+    </md-nav-list>
+  </td-navigation-drawer>
+  <router-outlet></router-outlet>
+</td-layout>
+-->
+
+
+<div layout-gt-md="row" layout="column" layout-fill flex >
+
+  <!-- 
+    iconside
+    -->
+
+  <div show-gt-md layout="column" hide class="iconnav md-elevation-z14 z-3">
+
+    <md-list> 
+      <a (click)="sidenav.toggle()" mdTooltip="LIST" mdTooltipPosition="after"><md-icon class="bgc-light-blue-800 tc-grey-50">dehaze</md-icon></a>
+      <a [routerLink]="['/']" mdTooltip="DASHBOARD" mdTooltipPosition="after"><md-icon>dashboard</md-icon></a>
+      <a [routerLink]="['/graph']" mdTooltip="GRAPH-QUERY" mdTooltipPosition="after"><md-icon>pie_chart</md-icon></a>
+      <a [routerLink]="['/workspace']" mdTooltip="WORKSPACE" mdTooltipPosition="after"><md-icon>insert_drive_file</md-icon></a>
+      <a [routerLink]="['/admin']" mdTooltip="ADMIN" mdTooltipPosition="after"><md-icon>person</md-icon></a>
+      <a [routerLink]="['/help']" mdTooltip="HELP" mdTooltipPosition="after"><md-icon>help</md-icon></a>  
+    </md-list>
+    <span flex></span>
+    <img src="../../../../assets/img/logo_bn.png">
+  </div>
+  
+  <div layout="column" layout-fill flex>
+    <md-sidenav-container class="bgc-light-blue-50"> 
+
+      <!-- 
+        sidenav
+        -->
+        
+      <md-sidenav #sidenav 
+        
+        [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"       
+        
+        class="tc-grey-800" >
+        <div class="pad-md bgc-light-blue-800 tc-grey-50" (click)="sidenav.close()">            
+            <h3>BITNINE</h3>
+            <p><small>AGENSGRAPH MANAGER</small></p>
+        </div>
+        <md-divider></md-divider>             
+        <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
+          <div class="textnav_con" (click)="routeSub(item.route,item.title)" layout="row">          
+            <h4 class="pad-left-sm"> 
+                {{item.title}} <small> {{item.description}} </small> 
+            </h4>
+            <span flex></span>
+            <md-icon>keyboard_arrow_right</md-icon>
+          </div>
+          <md-divider></md-divider>             
+        </ng-template>
+        
+      </md-sidenav>
+        
+      <!--
+        main-contents
+        -->
+        
+      <div class="bgc-light-blue-800 tc-grey-50 md-elevation-z1 header">
+          <div flex layout layout-align="center center">
+              <a md-icon-button (click)="sidenav.open()" hide-gt-md><md-icon>dehaze</md-icon></a>
+              <img src="../../../../assets/img/logo_wh_32px.png">
+              <span flex></span>              
+              <a md-icon-button [mdMenuTriggerFor]="notificationsMenu" mdTooltip="Alram" mdTooltipPosition="before">
+                <td-notification-count [notifications]="101">
+                  <md-icon>alarm_on</md-icon>
+                </td-notification-count>
+              </a>
+
+              <!--
+                Alram menu
+                -->
+
+              <md-menu #notificationsMenu="mdMenu">
+                  <td-menu>
+                    <div td-menu-header class="md-subhead">Notifications</div>
+                    <md-nav-list dense>
+                      <ng-template let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5,6,7,8,9]">
+                        <a md-list-item>
+                          <md-icon md-list-avatar>today</md-icon>
+                          <h4 md-line><span class="text-wrap">A user did an activity on an item that you've subscribed to follow actions on.</span></h4>
+                          <p md-line>22 minutes ago</p>
+                        </a>
+                        <md-divider *ngIf="!last"></md-divider>
+                      </ng-template>
+                    </md-nav-list>
+                  </td-menu>
+              </md-menu>
+
+              <a md-icon-button mdTooltip="Logout" mdTooltipPosition="before" [routerLink]="('/login')"><md-icon>lock_open</md-icon></a>
+
+          </div>
+      </div>
+      <router-outlet></router-outlet>   
+
+    </md-sidenav-container>
+  </div>
+</div>

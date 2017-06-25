@@ -1,0 +1,17 @@
+<md-dialog-content>
+  <md-toolbar class="fullscreen-dialog" color="primary" aria-label="Full Screen Dialog Test">
+    <span>Full Screen Dialog Test</span>
+    <span class="toolbar-fill-remaining"></span>
+
+    <button md-icon-button mdTooltip="Close" (click)="closeDialog()">
+      <md-icon class="md-24"><i class="material-icons">clear</i></md-icon>  
+    </button>
+  </md-toolbar>
+  <div class="wrap">
+
+    <div class="pad-md">
+      <td-json-formatter [data]="graphJson" [levelsOpen]="2"></td-json-formatter>
+    </div>    
+
+  </div>
+</md-dialog-content>

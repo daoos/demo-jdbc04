@@ -1,0 +1,53 @@
+
+      
+.material-icons { font-size: 20px; }
+
+div.iconnav { 
+
+    a {
+
+        &:first-of-type {
+
+                .material-icons { padding: 43px 18px; }
+
+        }
+
+    }
+       
+   .material-icons { padding: 24px 18px 16px; display: block; color: cadetblue; transition: all 0.3s ease-out;
+                
+        &:hover { color: darkslateblue; }
+    
+    }
+
+
+    img { width: 22px; padding: 16px; }
+}
+
+md-sidenav-container {
+
+    md-sidenav { width: 100%; max-width: 250px; border-radius: 0 0 25px 0; 
+    
+        h4 { font-size: 14px; font-weight: 400; }
+
+    }
+
+    div.textnav_header { padding: 24px 24px; 
+
+    }
+
+    div.textnav_con { padding: 20px; cursor: pointer; transition: all 0.5s ease-out;
+
+        &:hover { background-color: sandybrown; color: white;}
+        
+    }
+
+    div.header { padding: 10px 16px; margin: 0 30px; border-radius: 0 0 15px 15px; 
+
+        img { width: 100%; max-width: 85px; }
+    
+        .material-icons { font-size: 22px; }
+
+    }
+
+}

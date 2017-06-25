@@ -1,0 +1,80 @@
+div.Open_M_Head { padding: 16px; }
+.material-icons { font-size: 18px; line-height: 16px; }
+.radius15 { border-radius: 15px; }
+
+div.content {
+    padding-right: 20px;
+    .newgraph_card { border-radius: 0 0 0 15px; 
+        div { border-radius: 15px 0 0 15px; }    
+    }
+    span.page_title_icon { a { padding: 6px; } }
+    md-card { margin-right: 40px; }
+    div.edi_head { 
+          h4 { line-height: 37px; }  
+          a { display: inline-block; padding: 8px; cursor: pointer; }
+    }
+    td-expansion-panel {         
+        h4 { color: #fafafa; }; 
+    }    
+
+//------------------ Editor CSS
+
+    form { position: relative; 
+        md-placeholder { font-size:14px; }
+        .edi_chk { bottom: 10px; right: 10px; position: absolute; z-index: 99; }
+    }
+
+//------------------- GRAPH SETTING CSS
+
+    md-sidenav { width: 320px; 
+        div.setsidehead { padding: 26px 18px 26px 32px; margin-bottom: 12px; }
+        form {
+            h5 { width: 100%; margin: 14px 32px; padding-bottom: 8px; font-size: 15px; font-weight: 400; border-bottom: 1px solid; }
+            div.set_input { padding: 0 24px; 
+                md-input-container { margin: 0 8px; }
+                md-select { margin: 12px 8px; }
+            }
+        }
+        div.setsidefoot { margin: 10px 24px 0; }        
+    }
+
+//------------------ GRAPH CSS 
+
+    div.gra_content { 
+        height: 600px; position: relative; resize: vertical; overflow: auto; 
+        span.gra_con { 
+            position: absolute; top: 35px; right: 8px; color: #263238; 
+            button { margin-bottom: 5px; }
+        }
+        div.gra_example { 
+            margin: auto; width: 75px; height: 75px;  display: inline-block; margin: 10px; 
+            font-size:12px; color: rgb(245,245,245); text-align: center; line-height: 75px; 
+            border-radius: 50%; background-color: cornflowerblue; cursor:pointer; 
+            }
+        div.gra_info { 
+            width: 70%; height: 25px; line-height:25px; position: absolute; left: 25px; bottom: 25px; 
+            background-color: rgba(0,255,255, 0.5); border-radius: 30px; padding: 8px 20px; 
+            span { display: none; font-size: 14px; }
+        }
+        md-chip-list { position: absolute; bottom: 75px; left: 25px; }
+        
+        div#ag_property_box { position: absolute; top: 50%; left: 50%; 
+            &:hover ~ div span.one { display: block; }}
+        div#ag_img_viewer { position: absolute; top: 30%; left: 35%; 
+            &:hover ~ div span.two { display: block; }}
+        div#ag_add_node { position: absolute; top: 25%; left: 75%; 
+            &:hover ~ div span.three { display: block; }}
+    } 
+}
+
+.loading-container {
+  position: absolute;
+  top: 200px;
+  z-index: 2;
+  width:40%;
+  left: 40%;
+  margin: 0 auto;
+//   right: 0;
+}
+
+/////////////////////////////////////////////////

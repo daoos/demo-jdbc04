@@ -1,0 +1,902 @@
+<div class="content">
+
+  <h4 class="page_title">
+    HELP
+    <small class="block">Learn one way to build applications with Angular and reuse your code </small>
+  </h4>
+
+  <!-- help icon input -->
+
+  <input type="radio" id="dash" name="help">
+  <input type="radio" id="graph" name="help">
+  <input type="radio" id="work" name="help">
+  <input type="radio" id="admin" name="help">
+
+
+  <!-- help icon label design-->
+
+  <md-card layout="column" layout-gt-md="row" flex class="help_container" layout-align="center center">
+
+    <div class="help_info" flex>
+      <span layout="row" layout-align="start center">
+                <md-icon>widgets</md-icon>
+                <h3>Quick Prototyping needs quick support</h3>
+            </span>
+
+      <p>
+        Now that I've had more time, I'm giving the Marvel site a refresh. The current site was done quickly as we needed something
+        to go live with.
+      </p>
+
+      <form><input type="text" name="search"></form>
+    </div>
+
+    <div class="help_button">
+
+      <label for="dash">
+                <md-card class="pad-sm">
+                    <md-icon>dashboard</md-icon>
+                    <h4>Dashboard</h4>
+                    <p><small>Agens Dashboard Help</small></p>
+                </md-card>
+            </label>
+
+      <label for="graph">
+                <md-card class="pad-sm">
+                    <md-icon>pie_chart</md-icon>
+                    <h4>Graph-Query</h4>
+                    <p><small>Agens Graph Help</small></p>
+                </md-card>
+            </label>
+
+      <label for="work">
+                <md-card class="pad-sm">
+                    <md-icon>insert_drive_file</md-icon>
+                    <h4>Workspaces</h4>
+                    <p><small>Agens Workspaces Help</small></p>
+                </md-card>
+            </label>
+
+      <label for="admin">
+                <md-card class="pad-sm">
+                    <md-icon>person</md-icon>
+                    <h4>Admin</h4>
+                    <p><small>Agens Admin Help</small></p>
+                </md-card>
+            </label>
+    </div>
+
+  </md-card>
+
+
+  <!-- help content design -->
+
+  <!--dashboard-->
+
+  <md-card class="help_content content1">
+    <div class="help_content_title" layout="row">
+      <md-icon>dashboard</md-icon>
+      <h3>
+        Dashboard <br>
+        <small>Free shipping for order!</small>
+      </h3>
+    </div>
+    <div class="help_content_text">
+
+      <input type="checkbox" id="dash1" name="help_desk1">
+      <input type="checkbox" id="dash2" name="help_desk1">
+      <input type="checkbox" id="dash3" name="help_desk1">
+      <input type="checkbox" id="dash4" name="help_desk1">
+
+      <!--1-->
+
+      <label for="dash1" layout="row">
+                <h4>List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash1 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+                <h5>Where does it come from?</h5>
+                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                  literature from 45 BC, making it over 2000 years old. </p>
+                <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+                <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                  in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+              </div>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              </div>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--2-->
+
+      <label for="dash2" layout="row">
+                <h4>Line List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash2 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--3-->
+
+      <label for="dash3" layout="row">
+                <h4>Wish I could but we have plans</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+      <div class="dash3 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--4-->
+
+      <label for="dash4" layout="row">
+                <h4>Do you have Paris recommendations instead?</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash4 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+    </div>
+  </md-card>
+
+  <!--graph-query-->
+
+  <md-card class="help_content content2">
+    <div class="help_content_title" layout="row">
+      <md-icon>pie_chart</md-icon>
+      <h3>
+        Graph-Query <br>
+        <small>Free shipping for order!</small>
+      </h3>
+    </div>
+    <div class="help_content_text">
+
+      <input type="checkbox" id="dash1" name="help_desk1">
+      <input type="checkbox" id="dash2" name="help_desk1">
+      <input type="checkbox" id="dash3" name="help_desk1">
+      <input type="checkbox" id="dash4" name="help_desk1">
+
+      <!--1-->
+
+      <label for="dash1" layout="row">
+                <h4>Line List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash1 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+                <h5>Where does it come from?</h5>
+                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                  literature from 45 BC, making it over 2000 years old. </p>
+                <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+                <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                  in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+              </div>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              </div>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--2-->
+
+      <label for="dash2" layout="row">
+                <h4>List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash2 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--3-->
+
+      <label for="dash3" layout="row">
+                <h4>Do you have Paris recommendations instead?</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+      <div class="dash3 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--4-->
+
+      <label for="dash4" layout="row">
+                <h4>Wish I could but we have plans</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash4 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+    </div>
+  </md-card>
+
+  <!--workspaces-->
+
+  <md-card class="help_content content3">
+    <div class="help_content_title" layout="row">
+      <md-icon>insert_drive_file</md-icon>
+      <h3>
+        Workspaces <br>
+        <small>Free shipping for order!</small>
+      </h3>
+    </div>
+    <div class="help_content_text">
+
+      <input type="checkbox" id="dash1" name="help_desk1">
+      <input type="checkbox" id="dash2" name="help_desk1">
+      <input type="checkbox" id="dash3" name="help_desk1">
+      <input type="checkbox" id="dash4" name="help_desk1">
+
+      <!--1-->
+
+      <label for="dash1" layout="row">
+                <h4>Wish I could but we have plans</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash1 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+                <h5>Where does it come from?</h5>
+                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                  literature from 45 BC, making it over 2000 years old. </p>
+                <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+                <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                  in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+              </div>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              </div>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--2-->
+
+      <label for="dash2" layout="row">
+                <h4>Line List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash2 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--3-->
+
+      <label for="dash3" layout="row">
+                <h4>List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+      <div class="dash3 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--4-->
+
+      <label for="dash4" layout="row">
+                <h4>Do you have Paris recommendations instead?</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash4 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+    </div>
+  </md-card>
+
+  <!--admin-->
+
+  <md-card class="help_content content4">
+    <div class="help_content_title" layout="row">
+      <md-icon>insert_drive_file</md-icon>
+      <h3>
+        Workspaces <br>
+        <small>Free shipping for order!</small>
+      </h3>
+    </div>
+    <div class="help_content_text">
+
+      <input type="checkbox" id="dash1" name="help_desk1">
+      <input type="checkbox" id="dash2" name="help_desk1">
+      <input type="checkbox" id="dash3" name="help_desk1">
+      <input type="checkbox" id="dash4" name="help_desk1">
+
+      <!--1-->
+
+      <label for="dash1" layout="row">
+                <h4>Line List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash1 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+                <h5>Where does it come from?</h5>
+                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                  literature from 45 BC, making it over 2000 years old. </p>
+                <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+                <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                  in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+              </div>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <div>
+                <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+                <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                  schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat
+                  gentrify blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before
+                  they sold out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund
+                  man bun pug, kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              </div>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--2-->
+
+      <label for="dash2" layout="row">
+                <h4>List Items with Avatars and inset dividers</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash2 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--3-->
+
+      <label for="dash3" layout="row">
+                <h4>Wish I could but we have plans</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+      <div class="dash3 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+      <!--4-->
+
+      <label for="dash4" layout="row">
+                <h4>Do you have Paris recommendations instead?</h4>
+                <span flex></span>
+                <md-icon class="up">keyboard_arrow_up</md-icon>
+            </label>
+
+      <div class="dash4 dash_content">
+        <div>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. </p>
+          <ul>
+            <li>Brunch this weekend? - I will be in your neighborhood</li>
+            <li>Re: Brunch this weekend? - Wish I could but we have plans</li>
+            <li>Re: Brunch this weekend? - Do you have Paris recommendations instead?</li>
+          </ul>
+          <md-tab-group>
+            <md-tab>
+              <ng-template md-tab-label>Dashboard</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+              <h5>Where does it come from?</h5>
+              <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+                literature from 45 BC, making it over 2000 years old. </p>
+              <h5>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</h5>
+              <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+            </md-tab>
+            <md-tab>
+              <ng-template md-tab-label>Trevor</ng-template>
+              <h5>Affogato try-hard kickstarter seitan, DIY pickled hella godard pork belly four loko ugh.</h5>
+              <p> Plaid echo park knausgaard normcore franzen cronut. Pickled humblebrag tofu hoodie, umami salvia farm-to-table
+                schlitz try-hard food truck knausgaard pabst. Yuccie portland jean shorts, authentic mixtape waistcoat gentrify
+                blue bottle. Fixie kickstarter church-key small batch seitan, shabby chic vegan listicle before they sold
+                out. Hammock raw denim flannel tousled seitan you probably haven't heard of them. Trust fund man bun pug,
+                kickstarter artisan selvage letterpress cornhole tote bag butcher locavore. </p>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+    </div>
+  </md-card>
+
+</div>

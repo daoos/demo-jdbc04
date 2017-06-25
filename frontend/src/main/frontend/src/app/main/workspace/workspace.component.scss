@@ -1,0 +1,134 @@
+span.help {
+  position: relative;
+  p {
+    position: absolute;
+    top: -28px;
+    left: -220px;
+    width: 150px;
+    height: 0;
+    line-height: 30px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    background-color: salmon;
+    color: white;
+    z-index: -1;
+    border-radius: 0 0 8px 8px;
+    box-shadow: lightgrey 1px 1px 1px;
+    padding: 0 22px;
+    font-size: 14px;
+  }
+  .material-icons {
+    color: dimgray;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-right: 8px;
+    transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    &:hover {
+      color: tomato;
+      transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      ~p {
+        padding: 25px 22px 12px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+h4.page_title {
+  height: 34px;
+}
+
+th {
+  color: black !important;
+}
+
+tr {
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  td {
+    height: 60px;
+  }
+  div.opt_icon {
+    button {
+      background-color: cyan;
+      border: none;
+      color: white;
+      padding: 10px 8px 4px;
+      margin-left: 8px;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+      .play {
+        font-size: 18px;
+        padding: 1px;
+        line-height: 12px;
+      }
+      .change {
+        font-size: 16px;
+        padding: 1px;
+        line-height: 8px;
+      }
+      .delete {
+        font-size: 20px;
+        line-height: 14px;
+      }
+    }
+  }
+  &:hover {
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    box-shadow: lightgray 1px 1px 3px;
+    >td {
+      div {
+        button {
+          background-color: tomato;
+        }
+      }
+    }
+  }
+}
+
+md-card {
+  div.graph_title {
+    padding: 16px;
+    .material-icons {
+      font-size: 18px;
+    }
+    div {
+      h4 {
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-left: 16px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .material-icons {
+        background-color: cornflowerblue;
+        border-radius: 50%;
+        padding: 10px;
+        color: white;
+        font-size: 20px;
+        box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+      }
+    }
+    a {
+      margin-left: 8px;
+      padding: 6px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  md-card-content {
+    height: 200px;
+  }
+}
+
+.savedata {
+  height: 304px;
+  margin-top: 12px;
+}
