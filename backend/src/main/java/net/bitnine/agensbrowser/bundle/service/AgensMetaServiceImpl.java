@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -11,6 +12,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,9 @@ import net.bitnine.agensbrowser.bundle.repository.AgensMetaRepositoryImpl;
 public class AgensMetaServiceImpl implements AgensMetaService {
 
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@Value("${agens.config.app_name}")
+	private String appName;
 
 	private Map<String,ConnectRequest> connMap = new HashMap<String,ConnectRequest>();
 	private Map<String,AgensDatabase> metaMap = new HashMap<String,AgensDatabase>();
@@ -126,6 +131,10 @@ public class AgensMetaServiceImpl implements AgensMetaService {
 	      dataSource.setUrl(dbUrl);
 	      dataSource.setUsername(cr.user_id);
 	      dataSource.setPassword(cr.user_pw);
+	      
+	      Properties props = new Properties();
+          props.setProperty("APPLICATIONNAME", String.format("%s<%s>", this.appName, cr.user_id));
+	      dataSource.setConnectionProperties(props);
 		}
 		catch(Exception e){
 			logger.error(String.format("addConnection(): dataSource.build FAIL!! [%s] by id[%s]", dbUrl, cr.user_id));

@@ -209,4 +209,32 @@ export class AgensApiService {
       .catch(this.handleError);
   }
   
+  dbAdminSessions(){
+    const url = `${this.adminUrl}/sessions`;
+    let headers = this.auth.createAuthorizationHeader(this.auth.getToken());
+    console.log( `try dbAdminSessions ==> ${url}`);
+
+    return this.http
+      .get(url, {headers: headers})
+      .toPromise()
+      .then(res => {
+        return res.json();
+      })
+      .catch(this.handleError);
+  }
+
+  dbAdminLocks(){
+    const url = `${this.adminUrl}/locks`;
+    let headers = this.auth.createAuthorizationHeader(this.auth.getToken());
+    console.log( `try dbAdminLocks ==> ${url}`);
+
+    return this.http
+      .get(url, {headers: headers})
+      .toPromise()
+      .then(res => {
+        return res.json();
+      })
+      .catch(this.handleError);
+  }
+
 }

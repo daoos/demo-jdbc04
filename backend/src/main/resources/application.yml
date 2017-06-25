@@ -10,7 +10,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://27.117.163.21:15602/test_ts
+    url: jdbc:postgresql://27.117.163.21:15602/test_ts?ApplicationName=AgensBrowser-Admin
 #   url: jdbc:postgresql://127.0.0.1:6179/test_ts
     username: agraph
     password: agraph
@@ -38,6 +38,7 @@ jwt:
 
 agens:
   config:
+    app_name: AgensBrowser-Client
     max_rows_num: 500
     base_path: /api/v1
 

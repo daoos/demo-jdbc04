@@ -31,8 +31,13 @@ export class AdminComponent implements OnInit, AfterViewInit {
     roles: "ROLE_USER"
   };
 
+  sessionRows: any[] = [];
+  lockRows: any[] = [];
+
   // ** NOTE : 포함하면 AOT 컴파일 오류 떨어짐 (offset 지정 기능 때문에 사용)
   @ViewChild('adminUsersTable') adminUsersTable: any;
+  @ViewChild('adminSessionsTable') adminSessionsTable: any;
+  @ViewChild('adminLocksTable') adminLocksTable: any;
 
   constructor(
     public media: TdMediaService,
@@ -48,7 +53,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
+    this.loadSessions();
     this.loadUsers();
+    this.loadLocks();
   }
 
   loadUsers(){
@@ -64,7 +71,24 @@ export class AdminComponent implements OnInit, AfterViewInit {
             }, {authority:[]}); 
             row.authorities_text = total.authority.join(', ');
           });
+          this.adminUsersTable.offset = 0;
           this.loading_users = false;
+        });
+  }
+
+  loadSessions(){
+    this.apiSerivce.dbAdminSessions()
+        .then(res => {
+          this.sessionRows = res;
+          this.adminSessionsTable.offset = 0;
+        });
+  }
+
+  loadLocks(){
+    this.apiSerivce.dbAdminLocks()
+        .then(res => {
+          this.lockRows = res;          
+          this.adminLocksTable.offset = 0;
         });
   }
 

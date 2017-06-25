@@ -8,6 +8,7 @@
             <p>HOW CAN I HELP YOU?</p>
         </span>
   </span>
+  
 <!--
   <div layout-gt-md="row" class="admin_container">
     <md-card flex="33%">
@@ -36,6 +37,126 @@
     </md-card>
   </div>
 -->
+
+  <md-tab-group style="margin-right:40px;">
+    <md-tab label="Sessions" style="margin-right:10px;">
+
+      <div class="button-row" style="margin-left:10px; margin-right: 40px;">
+          <button md-raised-button (click)="loadSessions()">Refresh</button>
+      </div>
+
+      <ngx-datatable #adminSessionsTable class='material' style="margin-left:10px; margin-right:10px;"
+              [rows]="sessionRows" [reorderable]="true" [limit]="5" [scrollbarH]="true"
+              [headerHeight]="50" [footerHeight]="50" [rowHeight]="50" [columnMode]="'force'"
+              (page)="onSessionsTablePage($event.offset)">
+
+        <ngx-datatable-column name="PID" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.pid }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="State" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.state }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Database" [maxWidth]="120" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.datname }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="User ID" [maxWidth]="120" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.usename }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Client IP" [maxWidth]="120" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.clientip }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Application" [maxWidth]="200" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.appname }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Query Start Time" [maxWidth]="170" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.query_start | date : "yyyy-MM-dd HH:mm:ss" }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Query" [minWidth]="200" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.query }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </md-tab>
+    <md-tab label="Locks" style="margin-right:10px;">
+
+      <div class="button-row" style="margin-left:10px; margin-right: 40px;">
+          <button md-raised-button (click)="loadLocks()">Refresh</button>
+      </div>
+
+      <ngx-datatable #adminLocksTable class='material' style="margin-left:10px; margin-right:10px;"
+              [rows]="lockRows" [reorderable]="true" [limit]="5" [scrollbarH]="true"
+              [headerHeight]="50" [footerHeight]="50" [rowHeight]="50" [columnMode]="'force'"
+              (page)="onLocksTablePage($event.offset)">
+
+        <ngx-datatable-column name="W-PID" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.waiting_pid }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="W-LockType" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.waiting_locktype }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="W-Mode" [maxWidth]="100" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.waiting_mode }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="W-Query" [maxWidth]="250" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.waiting_query }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="O-PID" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.other_pid }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="O-LockType" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.other_locktype }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="O-Mode" [maxWidth]="100" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.other_mode }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="O-Query" [maxWidth]="250" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.other_query }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="O-Granted" [maxWidth]="80" [resizeable]="false">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span>{{ row.other_granted }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+      
+    </md-tab>
+  </md-tab-group>
+
   <md-card style="margin-right:50px;">
     <div layout="row" style="margin-right:40px;">
       <h4>User List</h4>

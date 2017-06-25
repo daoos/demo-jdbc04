@@ -44,6 +44,7 @@ public class AgensMetaRepositoryImpl extends JdbcDaoSupport implements AgensMeta
 	@Override
 	public void initialize(DataSource dataSource){
 		setDataSource(dataSource);
+		
 	}
 
 	@Override
