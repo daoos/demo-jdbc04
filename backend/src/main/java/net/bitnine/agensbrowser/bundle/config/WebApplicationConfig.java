@@ -51,6 +51,10 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 		
 		if (!registry.hasMappingForPattern("/**")) {
 			registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+				      // .setCachePeriod(3600)			// 캐시 기간 seconds (확실히 빨라진다!!)
+				      // .resourceChain(true)
+				      // .addResolver(new PathResourceResolver());
+			
 //					CLASSPATH_RESOURCE_LOCATIONS);
 		}
 /*		
@@ -60,11 +64,11 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 		}
 */		
 	}	
-	
+/*	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		// **NOTE: forward도 redirect도 안먹힘 
 	    registry.addViewController("/").setViewName("redirect:/index.html");
 	}
-	
+*/	
 }
